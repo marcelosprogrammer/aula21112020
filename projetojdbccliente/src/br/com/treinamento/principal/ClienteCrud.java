@@ -7,22 +7,32 @@ import java.util.*;
 
 public class ClienteCrud {
 	
-	public void salvar(Cliente Cliente) {
+	public void salvar(Cliente Cliente) throws SQLException {
 		Connection conexao = this.geraConexao();
 		PreparedStatement insereSt = null;
 		String sql = "insert into Cliente (nome, telefone, email, data_cadastro, obs) values (?, ?, ?, ?, ?)";
+		
 		try {
 			insereSt = conexao.prepareStatement(sql);
+			
 			insereSt.setString(1, Cliente.getNome());
 			insereSt.setString(2, Cliente.getTelefone());
 			insereSt.setString(3, Cliente.getEmail());
 			insereSt.setDate(4, Cliente.getDataCadastro());
 			insereSt.setString(5, Cliente.getObservacao());
+			
 			insereSt.executeUpdate();
+			
+			
+			
 		} catch (SQLException e) {
 			System.out.println("Erro ao incluir Cliente. Mensagem: "
 					+ e.getMessage());
-		} finally {
+		} catch(Exception f){
+			
+		}	
+		finally {
+		
 			try {
 				insereSt.close();
 				conexao.close();
@@ -32,6 +42,7 @@ public class ClienteCrud {
 								+ e.getMessage());
 			}
 		}
+		
 	}
 
 	public void atualizar(Cliente Cliente) {
@@ -71,7 +82,10 @@ public class ClienteCrud {
 
 		try {
 			excluiSt = conexao.prepareStatement(sql);
+			
 			excluiSt.setInt(1, Cliente.getCodigo());
+			
+			
 			excluiSt.executeUpdate();
 		} catch (SQLException e) {
 			System.out.println("Erro na exclusão. Mensagem: "
@@ -89,16 +103,21 @@ public class ClienteCrud {
 	}
 
 	public List<Cliente> listar() {
+		
 		Connection conexao = this.geraConexao();
+		
 		List<Cliente> Clientes = new ArrayList<Cliente>();
+		
 		Statement consulta = null;
 		ResultSet resultado = null;
 		Cliente Cliente = null;
 		String sql = "select * from Cliente";
+		
 		try {
 			consulta = conexao.createStatement();
 			resultado = consulta.executeQuery(sql);
 			while (resultado.next()) {
+				
 				Cliente = new Cliente();
 				Cliente.setCodigo(resultado.getInt("codigo"));
 				Cliente.setNome(resultado.getString("nome"));
@@ -107,6 +126,7 @@ public class ClienteCrud {
 				Cliente.setDataCadastro(resultado.getDate("data_cadastro"));
 				Cliente.setObservacao(resultado.getString("obs"));
 				Clientes.add(Cliente);
+				
 			}
 		} catch (SQLException e) {
 			System.out.println("Erro ao buscar Cliente. Mensagem: "
@@ -129,6 +149,7 @@ public class ClienteCrud {
 		Connection conexao = this.geraConexao();
 		PreparedStatement consulta = null;
 		ResultSet resultado = null;
+		
 		Cliente Cliente = null;
 
 		String sql = "select * from Cliente where codigo = ?";
@@ -183,7 +204,7 @@ public class ClienteCrud {
 		return conexao;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SQLException {
 		ClienteCrud ClienteCrud = new ClienteCrud();
 
 		// Cliente 1
