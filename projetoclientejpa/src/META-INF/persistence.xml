@@ -26,6 +26,10 @@
 			<property name="eclipselink.logging.level" value="FINE" />
 			<property name="eclipselink.ddl-generation"
 				value="create-tables" />
+			 <property name="eclipselink.ddl-generation.output-mode" value="sql-script"/>
+			 <property name="eclipselink.create-ddl-jdbc-file-name" value="sql-create-script"/>
+			<property name="eclipselink.application-location" value="c:/dados"/>
+			 
 		</properties>
 	</persistence-unit>
 </persistence>
