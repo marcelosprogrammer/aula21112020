@@ -6,7 +6,15 @@
 	<persistence-unit name="projetoclientejpa"
 		transaction-type="RESOURCE_LOCAL">
 		<class>br.com.treinamento.model.Cliente</class>
-	    
+		<class>relacionamentos_manytoone.Departamento</class>
+		<class>relacionamentos_manytoone.Pessoa</class>
+		<class>br.treinamento.consultas.Address</class>
+		<class>br.treinamento.consultas.Employee</class>
+		<class>br.treinamento.consultas.Phone</class>
+	    <class>br.treinamento.consultas.Professor</class>
+		<class>br.treinamento.consultas.Project</class>
+		<class>br.treinamento.consultas.Department</class>
+				
 		<properties>
 			<!-- Configuring The Database Connection Details -->
 			<property name="javax.persistence.jdbc.driver"
