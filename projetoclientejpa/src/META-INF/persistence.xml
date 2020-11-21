@@ -5,6 +5,7 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="projetoclientejpa"
 		transaction-type="RESOURCE_LOCAL">
+		
 		<class>br.com.treinamento.model.Cliente</class>
 		<class>relacionamentos_manytoone.Departamento</class>
 		<class>relacionamentos_manytoone.Pessoa</class>
@@ -14,6 +15,7 @@
 	    <class>br.treinamento.consultas.Professor</class>
 		<class>br.treinamento.consultas.Project</class>
 		<class>br.treinamento.consultas.Department</class>
+		<class>br.com.treinamento.model.ClienteB</class>
 				
 		<properties>
 			<!-- Configuring The Database Connection Details -->
