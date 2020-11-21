@@ -225,6 +225,14 @@ public class ClienteCrud {
 		cliente2.setObservacao("Novo Cliente 2");
 		ClienteCrud.salvar(cliente2);
 		System.out.println("Clientes cadastrados: " + ClienteCrud.listar().size());
+		
+		
+		List<Cliente> listaCliente = ClienteCrud.listar();
+		for(Cliente l : listaCliente) {
+			System.out.println(l);
+		}
+		
+		
 	}
 
 }

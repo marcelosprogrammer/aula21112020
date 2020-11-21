@@ -115,6 +115,16 @@ public class Cliente implements Serializable{
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Cliente [codigo=" + codigo + ", nome=" + nome + ", telefone=" + telefone + ", email=" + email
+				+ ", dataCadastro=" + dataCadastro + ", observacao=" + observacao + "]";
+	}
 	
 	
 
