@@ -32,13 +32,12 @@ public class Carro implements Serializable{
 	private int qtdRodas;
 	
 	@OneToOne
-	@JoinColumn(name="fabricante")
-	private Fabricante fabricante;
+	@JoinColumn(name="numeroserial")
+	private ChipSeguranca chipseguranca;
 	
 	public Carro() {
 		
 	}
-
 
 	/**
 	 * @return the id
@@ -47,14 +46,12 @@ public class Carro implements Serializable{
 		return id;
 	}
 
-
 	/**
 	 * @param id the id to set
 	 */
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 
 	/**
 	 * @return the nome
@@ -63,14 +60,12 @@ public class Carro implements Serializable{
 		return nome;
 	}
 
-
 	/**
 	 * @param nome the nome to set
 	 */
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 
 	/**
 	 * @return the qtdRodas
@@ -79,7 +74,6 @@ public class Carro implements Serializable{
 		return qtdRodas;
 	}
 
-
 	/**
 	 * @param qtdRodas the qtdRodas to set
 	 */
@@ -87,32 +81,19 @@ public class Carro implements Serializable{
 		this.qtdRodas = qtdRodas;
 	}
 
-
-	
 	/**
-	 * @return the fabricante
+	 * @return the chipseguranca
 	 */
-	public Fabricante getFabricante() {
-		return fabricante;
+	public ChipSeguranca getChipseguranca() {
+		return chipseguranca;
 	}
-
 
 	/**
-	 * @param fabricante the fabricante to set
+	 * @param chipseguranca the chipseguranca to set
 	 */
-	public void setFabricante(Fabricante fabricante) {
-		this.fabricante = fabricante;
+	public void setChipseguranca(ChipSeguranca chipseguranca) {
+		this.chipseguranca = chipseguranca;
 	}
-
-
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Carro [id=" + id + ", nome=" + nome + ", qtdRodas=" + qtdRodas + "]";
-	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
@@ -121,12 +102,12 @@ public class Carro implements Serializable{
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((chipseguranca == null) ? 0 : chipseguranca.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + qtdRodas;
 		return result;
 	}
-
 
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
@@ -140,6 +121,11 @@ public class Carro implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Carro other = (Carro) obj;
+		if (chipseguranca == null) {
+			if (other.chipseguranca != null)
+				return false;
+		} else if (!chipseguranca.equals(other.chipseguranca))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -154,8 +140,17 @@ public class Carro implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Carro [id=" + id + ", nome=" + nome + ", qtdRodas=" + qtdRodas + ", chipseguranca=" + chipseguranca
+				+ "]";
+	}
+
+
 	
 	
 	

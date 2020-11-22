@@ -5,7 +5,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import br.com.treinamento.model.Carro;
-import br.com.treinamento.model.Fabricante;
+import br.com.treinamento.model.ChipSeguranca;
 
 public class ConsultaCarros {
 
@@ -23,7 +23,7 @@ public class ConsultaCarros {
 	private void selecionarCarro(int id, EntityManager e) {
 		e.getTransaction().begin();
 		Carro carro = e.find(Carro.class, new Integer(1));
-		Fabricante fabricante = e.find(Fabricante.class, carro.getFabricante().getId());
+		ChipSeguranca fabricante = e.find(ChipSeguranca.class, carro.getChipseguranca().getId());
 		e.getTransaction().commit();
 		
 		System.out.println(carro);

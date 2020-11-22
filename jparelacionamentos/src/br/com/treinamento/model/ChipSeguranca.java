@@ -6,19 +6,19 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="fabricante")
-public class Fabricante {
+public class ChipSeguranca {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Integer id;
 	
-	@OneToOne(mappedBy="fabricante")
+	@OneToOne(mappedBy="chipseguranca")
 	private Carro carro;
 	
-	private String nome;
+	private String numero;
 	
-	public Fabricante() {
+	public ChipSeguranca() {
 		
 	}
 
@@ -37,25 +37,31 @@ public class Fabricante {
 	}
 
 	/**
-	 * @return the nome
+	 * @return the carro
 	 */
-	public String getNome() {
-		return nome;
+	public Carro getCarro() {
+		return carro;
 	}
 
 	/**
-	 * @param nome the nome to set
+	 * @param carro the carro to set
 	 */
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setCarro(Carro carro) {
+		this.carro = carro;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return the numero
 	 */
-	@Override
-	public String toString() {
-		return "Fabricante [id=" + id + ", nome=" + nome + "]";
+	public String getNumero() {
+		return numero;
+	}
+
+	/**
+	 * @param numero the numero to set
+	 */
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
 	/* (non-Javadoc)
@@ -65,8 +71,9 @@ public class Fabricante {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((carro == null) ? 0 : carro.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
 		return result;
 	}
 
@@ -81,20 +88,34 @@ public class Fabricante {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fabricante other = (Fabricante) obj;
+		ChipSeguranca other = (ChipSeguranca) obj;
+		if (carro == null) {
+			if (other.carro != null)
+				return false;
+		} else if (!carro.equals(other.carro))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nome == null) {
-			if (other.nome != null)
+		if (numero == null) {
+			if (other.numero != null)
 				return false;
-		} else if (!nome.equals(other.nome))
+		} else if (!numero.equals(other.numero))
 			return false;
 		return true;
 	}
-	
-	
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "ChipSeguranca [id=" + id + ", carro=" + carro + ", numero=" + numero + "]";
+	}
+
+	
+	
+	
 }
