@@ -4,8 +4,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.mapeamentos.model.Carro;
-import br.mapeamentos.model.Fabricante;
+import br.com.treinamento.model.Carro;
+import br.com.treinamento.model.Fabricante;
 
 public class ConsultaCarros {
 

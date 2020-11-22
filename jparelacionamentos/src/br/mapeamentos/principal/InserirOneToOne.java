@@ -4,7 +4,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import br.mapeamentos.model.*;
+import br.com.treinamento.model.Carro;
+import br.com.treinamento.model.Fabricante;
+import br.com.treinamento.model.*;
 
 public class InserirOneToOne {
 
