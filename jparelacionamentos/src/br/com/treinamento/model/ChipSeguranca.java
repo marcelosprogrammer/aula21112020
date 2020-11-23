@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name="fabricante")
+@Table(name="chip_seguranca")
 public class ChipSeguranca {
 	
 	@Id
@@ -16,6 +16,7 @@ public class ChipSeguranca {
 	@OneToOne(mappedBy="chipseguranca")
 	private Carro carro;
 	
+	@Column(name="numero")
 	private String numero;
 	
 	public ChipSeguranca() {
