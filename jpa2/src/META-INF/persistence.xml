@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="Jpaexemplo"
+		transaction-type="RESOURCE_LOCAL">
+		<class>br.com.treinamentos.model.Carro</class>
+		<class>br.com.treinamentos.model.ChipSeguranca</class>
+		<properties>
+			<!-- Configuring The Database Connection Details -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpa_exemplo" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<!-- <property name="eclipselink.logging.level" value="FINE" /> -->
+			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation.output-mode" value="sql-script" />
+			<property name="eclipselink.create-ddl-jdbc-file-name" value="sql-create-script" />
+			<property name="eclipselink.application-location" value="c:/dados" />
+			<property name="eclipselink.ddl-generation.output-mode" value="both" />
+		</properties>
+	</persistence-unit>
+</persistence>
