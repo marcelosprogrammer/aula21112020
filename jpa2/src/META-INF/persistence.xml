@@ -7,6 +7,12 @@
 		transaction-type="RESOURCE_LOCAL">
 		<class>br.com.treinamentos.model.Carro</class>
 		<class>br.com.treinamentos.model.ChipSeguranca</class>
+		<class>br.com.treinamentos.model.Aula</class>
+		<class>br.com.treinamentos.model.Exercicio</class>
+		<class>br.com.treinamentos.model.Aluno</class>
+		<class>br.com.treinamentos.model.Caneta</class>
+		<class>br.com.treinamentos.model.ProjetoExtensao</class>
+		
 		<properties>
 			<!-- Configuring The Database Connection Details -->
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

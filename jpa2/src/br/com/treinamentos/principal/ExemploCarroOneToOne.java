@@ -7,7 +7,7 @@ import javax.persistence.Persistence;
 import br.com.treinamentos.model.Carro;
 import br.com.treinamentos.model.ChipSeguranca;
 
-public class ExemploCarro {
+public class ExemploCarroOneToOne {
 
 	public static void main(String[] args) {
 	
